@@ -1,0 +1,33 @@
+<html>
+    <head>
+         <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>IBM Developers Connect @ Night 2016</h1>
+        <h2>Cómo obtener un Token de Seguridad al Servidor de MobileFirst Platform Foundation</h2>
+        <p>Para hacer el envío de Notificaciones Push, debe obtenerse un Token de Seguridad para autenticar la invocación de los servicios correspondientes REST hacia el Servidor de MobileFirst Platform.</p>
+        <p>Para llevar a cabo lo anterior, puede utilizarse una herramienta como Postman y ejecutar los siguientes pasos:</p>
+        <ol>
+            <li>Hacer una petición tipo <b>POST</b> a <b>https://vhernanm-mfpf-server.mybluemix.net:443/mfp/api/az/v1/token</b>.</li>
+            <p></p>
+            <li>En el <b>Body</b> asegurarse de configurar lo siguiente:</li>
+                <ul>
+                    <li>Seleccionar <b>application/x-www-form-urlencoded</b> como content-type</li>
+                    <li>Crear dos parámetros: grant_type, con el valor <b>client_credentials</b>; y scope con el valor <b>push.application.com.sample.pushnotificationscordovavhm messages.write</b></li>
+                </ul>
+            <p></p>
+            <img src="images/imagen_1.jpg" width="60%" height="45%">
+            <p></p>
+            <li>En la pestaña de "Authorization" seleccionar el tipo <b>Basic Auth</b>, nombre de usuario <b>"test"</b>y contraseña <b>"admin"</b>.</li>
+            <p></p>
+            <img src="images/imagen_2.jpg" width="60%" height="45%">
+            <p></p>
+            <li>Hacer clic en "Send". La respuesta a esta petición incluirá un objeto JSON, en el cual podrá encontrarse un Token de Seguridad con validez de <b>una hora</b>.</li>
+            <p></p>
+            <img src="images/imagen_3.jpg" width="60%" height="45%">
+        </ol>
+        <p>Si en cualquier momento del Reto es necesario obtener otro Token para continuar, deberá ejecutarse este procedimiento, y posteriormente se podrán reanudar las actividades en el paso correspondiente.</p>
+        <p></p>
+        <h2>Cómo usar el Token de Seguridad</h2>
+    </body>
+</html>
