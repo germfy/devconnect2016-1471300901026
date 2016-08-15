@@ -1,0 +1,11 @@
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  name: devconnect2016
+  host: devconnect2016
+  disk_quota: 1024M
+  services:
+  - Object Storage-yx
+  - Cloudant NoSQL DB-xx
