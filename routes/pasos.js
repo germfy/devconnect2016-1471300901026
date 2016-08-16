@@ -21,7 +21,7 @@ function enviarPush(token, texto, userID, respuesta, cuerpo){
         "userIds" : "[\"germfy\"]"
       }
     }
-  }, function(error, response, body){
+  }, function(error, response, body, respuesta, cuerpo){
     if(error) {
         console.error(error);
         respuesta = error;
@@ -34,7 +34,7 @@ function enviarPush(token, texto, userID, respuesta, cuerpo){
 };
 
 router.get('/paso0', function(req, res, next){
-	res.sendFile('/public/mfpf_token.html');
+	res.sendFile('./public/mfpf_token.html');
 });
 
 router.get('/paso1', function(req, res, next){
