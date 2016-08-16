@@ -27,13 +27,13 @@ function enviarPush(token, texto, userID){
         return error;
     } else {
         //console.log(response.statusCode, body);
-        return response.statusCode;
+        return response;
     }
   });
 };
 
 router.get('/paso0', function(req, res, next){
-	res.sendFile('../public/mfpf_token.html');
+	res.sendFile('/public/mfpf_token.html');
 });
 
 router.get('/paso1', function(req, res, next){
