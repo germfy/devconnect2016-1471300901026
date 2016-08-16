@@ -10,7 +10,7 @@ var enviarPush = function(req, res, texto, next){
       alert: texto
     },
     target: {
-      userIds : [ req.query.userID ]
+      userIds : [ req.query.equipo ]
     }
   };
 
