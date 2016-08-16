@@ -6,6 +6,7 @@
 
 // This application uses express as its web server
 // for more info, see: http://expressjs.com
+var routes = require('./routes/pasos.js');
 var express = require('express');
 
 // cfenv provides access to your Cloud Foundry environment
@@ -20,7 +21,21 @@ app.use(express.static(__dirname + '/public'));
 
 // get the app environment from Cloud Foundry
 var appEnv = cfenv.getAppEnv();
-
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  console.log(req);
+  var err = new Error('No encontrado');
+  err.status = 404;
+  next(err);
+});
+app.use(function(err, req, res, next) {
+	var error = {
+		      code: err.code || 500,
+		      error: err.error || err.message
+		    };
+	console.log('error:', error);
+	res.status(error.code).json(error);
+});
 // start server on the specified port and binding host
 app.listen(appEnv.port, '0.0.0.0', function() {
   // print a message when the server starts listening
