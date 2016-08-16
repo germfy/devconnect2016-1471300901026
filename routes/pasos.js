@@ -22,8 +22,10 @@ function enviarPush(token, texto, userID){
   }, function(error, response, body){
     if(error) {
         console.log(error);
+        return error;
     } else {
-        console.log(response.statusCode, body);
+        //console.log(response.statusCode, body);
+        return response.statusCode;
     }
   });
 };
@@ -33,5 +35,5 @@ router.get('/paso0', function(req, res, next){
 });
 
 router.get('/paso1', function(req, res, next){
-  enviarPush(req.token, "Prueba de paso 1", req.userID);
+  res.send(enviarPush(req.token, "Prueba de paso 1", req.userID));
 });
