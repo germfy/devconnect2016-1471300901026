@@ -16,7 +16,7 @@ function enviarPush(token, texto, userID){
         "alert": texto
       },
       "target": {
-        "userIds": "[" + userID "]"
+        "userIds": "[" + userID + "]"
       }
     }
   }), function(error, response, body){
