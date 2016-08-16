@@ -29,14 +29,14 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-app.use(function(err, req, res, next) {
+/*app.use(function(err, req, res, next) {
 	var error = {
 		      code: err.code || 500,
 		      error: err.error || err.message
 		    };
 	console.log('error:', error);
 	res.status(error.code).json(error);
-});
+});*/
 
 // start server on the specified port and binding host
 app.listen(appEnv.port, '0.0.0.0', function() {
