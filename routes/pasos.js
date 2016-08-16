@@ -23,17 +23,17 @@ function enviarPush(token, texto, userID){
     }
   }, function(error, response, body){
     if(error) {
-        //console.log(error);
+        console.error(error);
         return error;
     } else {
-        //console.log(response.statusCode, body);
+        console.log(response.statusCode);
         return response;
     }
   });
 };
 
 router.get('/paso0', function(req, res, next){
-	res.sendFile('/public/mfpf_token.html');
+	res.sendFile('mfpf_token.html');
 });
 
 router.get('/paso1', function(req, res, next){
