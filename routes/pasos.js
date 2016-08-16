@@ -19,7 +19,7 @@ function enviarPush(token, texto, userID){
         "userIds": "[" + userID + "]"
       }
     }
-  }), function(error, response, body){
+  }, function(error, response, body){
     if(error) {
         console.log(error);
     } else {
