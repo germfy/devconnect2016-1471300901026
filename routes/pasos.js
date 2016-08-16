@@ -18,7 +18,7 @@ function enviarPush(token, texto, userID){
       },
       "target": {
         //"userIds": "[" + userID + "]"
-        "userIds" : "[germfy]"
+        "userIds" : "[\"germfy\"]"
       }
     }
   }, function(error, response, body){
