@@ -24,10 +24,10 @@ function enviarPush(token, texto, userID){
   }, function(error, response, body){
     if(error) {
         console.log(error);
-        return error;
+        return error.toString();
     } else {
         //console.log(response.statusCode, body);
-        return response.statusCode;
+        return response.statusCode.toString();
     }
   });
 };
