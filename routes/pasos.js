@@ -62,8 +62,8 @@ router.get('/paso0', function(req, res, next){
 
 router.get('/paso1', function(req, res, next){
   enviarPush(req, res, "Prueba de paso 1", next);
-  console.log("Service info" + appEnv.getServices());
-  
+  console.log("Service info" + appEnv.getServices().parse());
+
 });
 router.get('/paso2', function(req, res, next){
   enviarPush(req, res, "Prueba de paso 2", next);
