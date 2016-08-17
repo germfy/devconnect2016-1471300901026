@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var cfenv = require('cfenv');
 var request = require('request');
-var Cloundat = require('cloundant');
+var Cloundat = require('cloudant');
 var appEnv = cfenv.getAppEnv();
 
 console.log("Service info" + appEnv.getServices());
