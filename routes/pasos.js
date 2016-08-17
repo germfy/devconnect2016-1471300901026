@@ -5,7 +5,8 @@ var request = require('request');
 var Cloundat = require('cloudant');
 var appEnv = cfenv.getAppEnv();
 var wCredentialsHost = appEnv.services["cloudantNoSQLDB"]? appEnv.services["cloudantNoSQLDB"][0].credentials.url : "";
-
+var cloudant = Cloudant(wCredentialsHost);
+var db = cloudant.db.use("devconnect2016");
 
 
 var enviarPush = function(req, res, texto, next){
@@ -63,7 +64,13 @@ router.get('/paso0', function(req, res, next){
 
 router.get('/paso1', function(req, res, next){
   enviarPush(req, res, "Prueba de paso 1", next);
-  console.log(wCredentialsHost);
+  db.insert({ equipo : req.query.equipo, paso : "Paso 1"}, req.query.equipo, function(err, body){
+    if(err)
+      console.log(err);
+    else {
+      console.log("cuerpo" + body);
+    }
+  });
 
 });
 router.get('/paso2', function(req, res, next){
