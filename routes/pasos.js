@@ -74,9 +74,15 @@ router.get('/paso1', function(req, res, next){
 
 });
 router.get('/paso2', function(req, res, next){
-  var resultado = enviarPush(req, res, "Prueba de paso 2", next);
-  console.log(resultado);
-  db.update({ equipo : req.query.equipo, paso : "Paso 2", fecha : new Date()}, req.query.equipo, function(err, body){
+  enviarPush(req, res, "Prueba de paso 2", next);
+  //console.log(resultado);
+  var revision;
+  db.get(req.query.equipo, {revs_info:true}, function(err, body){
+    if(!err){
+      revision = body._rev;
+    }
+  });
+  db.insert({ _rev: revision, equipo : req.query.equipo, paso : "Paso 2", fecha : new Date()}, req.query.equipo, function(err, body){
     if(err)
       console.log(err);
     else {
