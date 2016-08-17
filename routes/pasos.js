@@ -4,6 +4,7 @@ var cfenv = require('cfenv');
 var request = require('request');
 var Cloundat = require('cloudant');
 var appEnv = cfenv.getAppEnv();
+var wCredentialsHost = appEnv.services["cloudantNoSQLDB"]? appEnv.services["cloudantNoSQLDB"][0].credentials.url : "";
 
 
 
@@ -62,7 +63,7 @@ router.get('/paso0', function(req, res, next){
 
 router.get('/paso1', function(req, res, next){
   enviarPush(req, res, "Prueba de paso 1", next);
-  console.log("Service info" + appEnv.getServices().parse());
+  console.log(wCredentialsHost);
 
 });
 router.get('/paso2', function(req, res, next){
