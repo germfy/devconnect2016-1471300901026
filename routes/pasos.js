@@ -80,8 +80,10 @@ router.get('/paso2', function(req, res, next){
   db.get(req.query.equipo, {revs_info:true}, function(err, body){
     if(!err){
       revision = body._rev;
+      console.log(revision);
     }
   });
+
   db.insert({ _rev: revision, equipo : req.query.equipo, paso : "Paso 2", fecha : new Date()}, req.query.equipo, function(err, body){
     if(err)
       console.log(err);
