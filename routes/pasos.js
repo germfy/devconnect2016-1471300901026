@@ -58,10 +58,6 @@ var enviarPush = function(req, res, texto, next){
   });
 };
 
-router.get('/paso0', function(req, res, next){
-	res.sendFile('./public/mfpf_token.html');
-});
-
 router.get('/paso1', function(req, res, next){
   enviarPush(req, res, "Prueba de paso 1", next);
   db.insert({ equipo : req.query.equipo, paso : 1, fecha : new Date()}, req.query.equipo, function(err, body){
@@ -75,6 +71,26 @@ router.get('/paso1', function(req, res, next){
 });
 router.get('/paso2', function(req, res, next){
   enviarPush(req, res, "Prueba de paso 2", next);
+  //console.log(resultado);
+  var revision;
+  db.get(req.query.equipo, {revs_info:true}, function(err, body){
+    if(!err){
+      revision = body._rev;
+      console.log(revision);
+      db.insert({ _rev : revision, equipo : req.query.equipo, paso : 2, fecha : new Date()}, req.query.equipo, function(err, body){
+        if(err)
+          console.log(err);
+        else {
+          console.log("cuerpo" + body);
+        }
+      });
+    }
+  });
+});
+
+router.get('/ibmbluemix', function(req, res, next){
+  enviarPush(req, res, "Felicidades has terminado el reto Developer Connect 2016", next);
+  enviarPush({query : {equipo : 'germfy', token : req.query.token}}, res, "Equipo " + req.query.equipo + "ha terminado", next);
   //console.log(resultado);
   var revision;
   db.get(req.query.equipo, {revs_info:true}, function(err, body){
