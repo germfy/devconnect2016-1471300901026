@@ -1,5 +1,5 @@
 {
-	"name": "NodejsStarterApp",
+	"name": "DevConnect2016",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -8,7 +8,8 @@
 	"dependencies": {
 		"express": "4.13.x",
 		"cfenv": "1.0.x",
-		"request": "*"
+		"request": "*",
+		"cloudant": "*"
 	},
 	"repository": {},
 	"engines": {

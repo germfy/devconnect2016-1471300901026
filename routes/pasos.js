@@ -2,6 +2,10 @@ var express = require('express');
 var router = express.Router();
 var cfenv = require('cfenv');
 var request = require('request');
+var Cloundat = require('cloundant');
+var appEnv = cfenv.getAppEnv();
+
+console.log("Service info" + appEnv.getServices());
 
 var enviarPush = function(req, res, texto, next){
   //"userIds": "[\"" + req.userID + "\"]"
@@ -57,10 +61,11 @@ router.get('/paso0', function(req, res, next){
 });
 
 router.get('/paso1', function(req, res, next){
-  enviarPush(req, res, "Prueba de paso 1", next)
+  enviarPush(req, res, "Prueba de paso 1", next);
 });
 router.get('/paso2', function(req, res, next){
-  enviarPush(req, res, "Prueba de paso 2", next)
+  enviarPush(req, res, "Prueba de paso 2", next);
+
 });
 
 module.exports = router;
