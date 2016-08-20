@@ -58,8 +58,8 @@ var enviarPush = function(req, res, texto, next){
   });
 };
 
-router.get('/paso1', function(req, res, next){
-  enviarPush(req, res, "Prueba de paso 1", next);
+router.get('/letsstart', function(req, res, next){
+  enviarPush(req, res, "objectStorage", next);
   db.insert({ equipo : req.query.equipo, paso : 1, fecha : new Date()}, req.query.equipo, function(err, body){
     if(err)
       console.log(err);
