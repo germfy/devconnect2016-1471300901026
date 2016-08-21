@@ -11,13 +11,27 @@
         <h2>Iniciando las comunicaciones</h2>
             <p>Como lo habíamos dicho anteriormente <a href="https://devconnect2016.mybluemix.net">https://devconnect2016.mybluemix.net</a> es tu punto principal de contacto, una vez que tengas tu token de seguridad, será necesario que desde tu invocador de APIs (Postman, curl, SoapUI, RestClient, Poster, etc), invocar la siguiente URL https://devconnect2016.mybluemix.net/letsstart en formato REST con GET, con los siguientes parámetros en la URL: equipo (el nombre de equipo que has ingresado en la aplicación de tu dispositivo móvil) y el token de seguridad que has generado en el paso anterior.</p>
             <p>Un ejemplo de esta invocación lo puedes ver en la siguiente imagen:</p>
-            <img src="images/imagen_1a.png" width="95%">
+            <img src="images/imagen_1b.png" width="95%">
             <p></p>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-heading">Respuestas del servicio de Notificaciones Push</li>
+                <li class="list-group-item">El estatus correcto para recibir las notificaciones push, es 202 Accepted.</li>
+                <li class="list-group-item">El estatus 401 Unauthorized significa que tu token ha expirado o es incorrecto.</li>
+                <li class="list-group-item">El estatus 404 Not Found significa que la URI es equivocada y no existe.</li>
+                <li class="list-group-item">El estatus 500 Internal Server Error significa que podría haber un error en tu solicitud o el nombre de tu equipo es incorrecto.</li>
+            </ul>
+            
             <p>El mensaje que recibirás te indicará la URI que utilizarás en el navegador en <a href="https://devconnect2016.mybluemix.net">https://devconnect2016.mybluemix.net</a></p>
             <p><b>Nota importante:</b>Este será el formato de pasos que seguirán en el resto del reto, validarás tu descubrimiento en el invocador de APIs con la URI, y el mensaje que recibas, será la URI en el navegador para conseguir las siguientes instrucciones. El mensaje que recibirás será como el siguiente:</p>
-            <img src="images/IMG_4141.PNG" height="80%">
+            <img src="images/IMG_4144.jpg" height="80%">
             <p></p>
-            <p>Con este mensaje, lo siguiente sería introducir en el navegador: https://devconnect2016.mybluemix.net/paso1</p>
+            <p>Con este mensaje, lo siguiente sería introducir en el navegador: https://devconnect2016.mybluemix.net/paso1 para obtener las instrucciones para el siguiente paso.</p>
+            
+            <div class="panel panel-info">
+                <div class="panel-heading"><h4>Empecemos</h4></div>
+                <div class="panel-body">Es momento de empezar a buscar a BB-8, tu primer pista es "letsstart", con ella, pide tu primer mensaje.</div>
+            
+            </div>
         </div>
     </body>
 </html>

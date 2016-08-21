@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+         <meta charset="UTF-8">
+    </head>
+    <body>
+        <div class="container">
+        <div class="page-header">
+        <h1>IBM Developers Connect 2016</h1>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-heading"><h2>IBM® Blockchain</h2></div>
+        
+            <div class="panel-body">
+                <p>¿Qué es blockchain?</p>
+
+<p>Blockchain es una tecnología nueva para aplicaciones transaccionales de nueva generación que establece la confianza, la responsabilidad y la transaparencia, mientras que agiliza los procesos de negocio. Es un patrón de diseño que se hizo famoso por bitcoin, pero sus usos prácticos se exitienden más allá de los intercambios de "cryptocurrency". Con blockchain, podemos reimaginar los intercambios de negocio mas fundamentales, y abrir la puerta a un nuevo mundo de interacciones digitales.</p>
+
+<p>Blockchain tiene el potencial de reducir vastamente el costo y la complejidad de los procesos de negocio entre empresas. has the potential to vastly reduce the cost and complexity of cross-enterprise business processes. Sus contratos distribuídos hacen mas sencilla la creación de redes de negocios, donde virtualmente cualquier cosa, puede ser rastreada o intercambiada, sin requerir un punto central de control. Las aplicaciones de esta tecnología emergente están mostrando mucho potencial a través de una gama muy amplia de aplicaciones de negocio. Por ejemplo, redes blockchain permiten que compras seguras sean arregladas en minutos, cuando antes se hacían en días. Blockchain tambien ayuda a las empresas a agilizar el flujo de bienes y pagos, y permite que los fabricantes reducir el retiro de productos al compartir fácilmente los registros de producción con Fabricantes de Equipo Original (OEMs) y con los reguladores.
+</p>
+            </div>
+        </div>
+            <p>Una implementación de blockchain basada en Hyperledger no sólo es un repositorio de transacciones, también puede almacenar código (chaincode) que puede ser invocado como una transacción para modificar la cadena.</p>
+            
+            <p>Una vez que has descubierto cuál fue la nave que se llevó a BB-8, que sabes en que planeta esta, el último paso es firmar el descubrimiento en la base de datos de la policia interestelar, como estamos en un momento de seguridad crítico, debemos garantizar que quien haga los registros de descubrimientos sea una persona confiable y que conocemos.</p>
+            
+            <p>Para aprender como generar la transacción de descubrimiento final, podrás consultar la información en el siguiente <a href="https://github.com/hyperledger/fabric/blob/master/docs/API/CoreAPI.md">manual</a></p>
+            <p>Los datos que necesitarás para utilizar este servicio, son:</p>
+            <ul class="list-group">
+                <li class="list-group-item">URL del servicio: https://bc0fcc34-cd3d-48a1-b5b1-f6a659f0242e_vp1-api.blockchain.ibm.com:443</li>
+                <li class="list-group-item">Identificador del chaincode: 0d834780a2e1fffe9904de7ed263edb355bcaa199cff923193cf06b7dcef33c935eb9b6c870b4d8eb2d1869a4da523d0e16de163307674331d053f6ba048a5e4</li>
+                <li class="list-group-item">Nombre de usuario registrado : user_type1_3b1cf88eea</li>
+            </ul>
+            <p>Utiliza el servicio <b>invoke</b> para ejecutar funciones en la blockchain.</p>
+            <p>Existe una función llamada <b>winChallenge</b> que registrará que tu equipo ha obtenido la respuesta. Esta función recibe dos argumentos, el primero es el nombre de tu equipo, y el segundo es la clave que obtuviste en el paso anterior.</p>
+            <p>Si la transacción es exitosa, quedará registrada en la cadena una llave con el nombre de tu equipo. Consúltala utilizando la función <b>read</b> del servicio query. Esta función recibe sólo un parámetro: el nombre de tu equipo.</p>
+            <p>El valor devuelto es la última pista para que confirmes en la aplicación móvil que has completado todos los pasos con éxito.</p>
+
+        </div>
+    </body>
+</html>
