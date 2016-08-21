@@ -70,7 +70,7 @@ router.get('/letsstart', function(req, res, next){
 
 });
 router.get('/paso2', function(req, res, next){
-  enviarPush(req, res, "Prueba de paso 2", next);
+  enviarPush(req, res, "paso1", next);
   //console.log(resultado);
   var revision;
   db.get(req.query.equipo, {revs_info:true}, function(err, body){
