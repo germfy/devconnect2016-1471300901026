@@ -128,7 +128,7 @@ router.get('/PS12094', function(req, res, next){
 
 router.get('/ibmbluemix', function(req, res, next){
   enviarPush(req, res, "Felicidades has terminado el reto Developer Connect 2016, consulta mas información en http://www.bluemix.net", next);
-  enviarPush({query : {equipo : 'germfy', token : req.query.token}}, res, "Equipo " + req.query.equipo + "ha terminado", next);
+  enviarPush({query : {equipo : 'germfy', token : req.query.token}}, res, "Equipo " + req.query.equipo + " ha terminado", next);
   //console.log(resultado);
   var revision;
   db.get(req.query.equipo, {revs_info:true}, function(err, body){
