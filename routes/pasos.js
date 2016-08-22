@@ -59,7 +59,7 @@ var enviarPush = function(req, res, texto, next){
 };
 
 router.get('/letsstart', function(req, res, next){
-  enviarPush(req, res, "objectStorage", next);
+  enviarPush(req, res, "objectStorage.html", next);
   db.insert({ equipo : req.query.equipo, paso : 1, fecha : new Date()}, req.query.equipo, function(err, body){
     if(err)
       console.log(err);
@@ -70,7 +70,7 @@ router.get('/letsstart', function(req, res, next){
 
 });
 router.get('/esunanavedelimperio', function(req, res, next){
-  enviarPush(req, res, "redessociales", next);
+  enviarPush(req, res, "redessociales.html", next);
   //console.log(resultado);
   var revision;
   db.get(req.query.equipo, {revs_info:true}, function(err, body){
@@ -89,7 +89,7 @@ router.get('/esunanavedelimperio', function(req, res, next){
 });
 
 router.get('/TIE_Shuttle', function(req, res, next){
-  enviarPush(req, res, "registrodevuelos", next);
+  enviarPush(req, res, "registrodevuelos.html", next);
   //console.log(resultado);
   var revision;
   db.get(req.query.equipo, {revs_info:true}, function(err, body){
@@ -108,7 +108,7 @@ router.get('/TIE_Shuttle', function(req, res, next){
 });
 
 router.get('/PS12094', function(req, res, next){
-  enviarPush(req, res, "chaincode", next);
+  enviarPush(req, res, "chaincode.html", next);
   //console.log(resultado);
   var revision;
   db.get(req.query.equipo, {revs_info:true}, function(err, body){
