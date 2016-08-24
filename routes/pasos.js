@@ -159,7 +159,7 @@ router.get('/resultados', function(req, res, next){
             return JSONTemp;
           });
         }
-        res.send(StringJson);
+        console.log(StringJson);
       }
     }
   })
