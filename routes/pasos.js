@@ -152,7 +152,7 @@ router.get('/resultados', function(req, res, next){
     if(!err){
       for(i=0; i < body.rows.length; i++){
         if(body.rows[i].id.length < 36){
-          res.send(db.get(body.rows[i].id.length));
+          res.send(db.get(body.rows[i].id));
         }
       }
     }
