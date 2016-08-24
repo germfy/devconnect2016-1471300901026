@@ -151,11 +151,15 @@ router.get('/resultados', function(req, res, next){
     var StringJson
     if(!err){
       for(i=0; i < body.rows.length; i++){
-        if(body.rows[i].id.length < 36){
-          db.get(body.rows[i].id, function(err, cuerpo){
-            res.send(cuerpo);
+        if(body.rows[i].id.length < 32){
+          StringJson = db.get(body.rows[i].id, function(err, cuerpo){
+            var JSONTemp;
+            JSONTemp = { 'Paso' : cuerpo.paso,
+                  'fecha' : cuerpo.fecha};
+            return JSONTemp;
           });
         }
+        res.send(JSONTemp);
       }
     }
   })
