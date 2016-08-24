@@ -1,5 +1,12 @@
+
 require(['Chart.bundle.min'], function(Chart){
     var ctx = document.getElementById("myChart");
+    var theUrl = "https://148c22bc-9bfc-4aa0-aa3e-319d2874d333-bluemix:77b83f0fe3c5f00d8d7c7b9f3809017d83a7e1ebaf929223f0ef380e1cd8490c@148c22bc-9bfc-4aa0-aa3e-319d2874d333-bluemix.cloudant.com/devconnect2016/_all_docs?include_docs=true&descending=true";
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    var registros = xmlHttp.responseText;
+    alert(registros);
     var myChart = new Chart(ctx, {
     type: 'bar',
     data: {

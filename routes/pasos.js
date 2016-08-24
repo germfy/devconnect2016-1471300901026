@@ -146,4 +146,12 @@ router.get('/ibmbluemix', function(req, res, next){
   });
 });
 
+router.get('/resultados', function(req, res, next){
+  db.list(function(err, body){
+    if(!err){
+      res.send(body);
+    }
+  })
+})
+
 module.exports = router;
