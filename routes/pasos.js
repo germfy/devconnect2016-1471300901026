@@ -148,8 +148,13 @@ router.get('/ibmbluemix', function(req, res, next){
 
 router.get('/resultados', function(req, res, next){
   db.list(function(err, body){
+    var StringJson
     if(!err){
-      res.send(body);
+      for(i=0; i < body.rows.length; i++){
+        if(body.rows[i].id.length < 36){
+          res.send(db.get(body.rows[i].id.length));
+        }
+      }
     }
   })
 })
