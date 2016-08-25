@@ -1,45 +1,60 @@
 
 require(['Chart.bundle.min'], function(Chart){
     var ctx = document.getElementById("myChart");
-    var theUrl = "https://148c22bc-9bfc-4aa0-aa3e-319d2874d333-bluemix:77b83f0fe3c5f00d8d7c7b9f3809017d83a7e1ebaf929223f0ef380e1cd8490c@148c22bc-9bfc-4aa0-aa3e-319d2874d333-bluemix.cloudant.com/devconnect2016/_all_docs?include_docs=true&descending=true";
+    var theUrl = "/resultados";
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
     xmlHttp.send( null );
-    var registros = xmlHttp.responseText;
-    alert(registros);
+    var registros = JSON.parse(xmlHttp.responseText);
+    console.log(registros[0], registros.length);
+    var arregloEquipos = [];
+    var arregloPaso = [];
+    //registros.forEach(function(dato){
+    //    arregloEquipos.push(dato.equipo);
+    //    arregloPaso.push(dato.paso);
+    //});
+    for(i=0; i < registros.length; i++){
+        arregloEquipos.push(registros[i].equipo);
+        arregloPaso.push(registros[i].paso);
+    }
+    console.log(arregloEquipos);
+    console.log(arregloPaso);
     var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'polarArea',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: arregloEquipos,
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'Paso del reto',
+            data: arregloPaso,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                "#FF6384",
+                "#4BC0C0",
+                "#FFCE56",
+                "#E7E9ED",
+                "#36A2EB"
             ],
             borderWidth: 1
         }]
     },
     options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
+        responsive : true,
+        scale: {
+                lineArc : true,
+                angleLines : {
+                    display : true
+                },
+              ticks: {
+                display : true,
+                beginAtZero: true,
+                  maxTickLimit : 6,
+                  stepSize : 1
+              },
+              reverse: false
+            },
+            animation: {
+                animateRotate: false,
+                animateScale: true
+            }
     }
+        
 });})

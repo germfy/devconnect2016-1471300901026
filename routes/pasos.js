@@ -1,10 +1,15 @@
 var express = require('express');
 var router = express.Router();
+//var cfenv = require('../cfenv-wrapper');
 var cfenv = require('cfenv');
 var request = require('request');
 var Cloudant = require('cloudant');
 var appEnv = cfenv.getAppEnv();
-var wCredentialsHost = appEnv.services["cloudantNoSQLDB"]? appEnv.services["cloudantNoSQLDB"][0].credentials.url : "";
+if (!process.env.VCAP_SERVICES) {
+  var wCredentialsHost = "https://148c22bc-9bfc-4aa0-aa3e-319d2874d333-bluemix:77b83f0fe3c5f00d8d7c7b9f3809017d83a7e1ebaf929223f0ef380e1cd8490c@148c22bc-9bfc-4aa0-aa3e-319d2874d333-bluemix.cloudant.com";
+}else{
+  var wCredentialsHost = appEnv.services["cloudantNoSQLDB"]? appEnv.services["cloudantNoSQLDB"][0].credentials.url : "";
+};
 var cloudant = Cloudant(wCredentialsHost);
 var db = cloudant.db.use("devconnect2016");
 
@@ -147,22 +152,26 @@ router.get('/ibmbluemix', function(req, res, next){
 });
 
 router.get('/resultados', function(req, res, next){
-  db.list(function(err, body){
-    var StringJson
-    if(!err){
-      for(i=0; i < body.rows.length; i++){
-        if(body.rows[i].id.length < 32){
-          StringJson = db.get(body.rows[i].id, function(err, cuerpo){
-            var JSONTemp;
-            JSONTemp = { 'Paso' : cuerpo.paso,
-                  'fecha' : cuerpo.fecha};
-            return JSONTemp;
-          });
-        }
-        console.log(StringJson);
+  var StringJson = {equipos : []};
+  getRecords(function(StringJson){
+    console.log("Resultados enviados");
+    res.json(StringJson.equipos);
+  });
+
+});
+
+function getRecords(callback){
+  var resultados = {equipos :[]};
+  db.list({include_docs : true}, function(err, datos){
+    datos.rows.forEach(function(row){
+      if(row.doc.equipo){
+        resultados.equipos.push({ equipo : row.doc.equipo,
+                                  paso : row.doc.paso,
+                                  fecha : row.doc.fecha});
       }
-    }
-  })
-})
+    });
+    callback(resultados);
+  });
+};
 
 module.exports = router;
