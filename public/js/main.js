@@ -31,7 +31,10 @@ require(['Chart.bundle.min'], function(Chart){
                 "#4BC0C0",
                 "#FFCE56",
                 "#E7E9ED",
-                "#36A2EB"
+                "#36A2EB",
+                "#8d0808",
+                "#ff4d4d",
+                "#b3ff66"
             ],
             borderWidth: 1
         }]
